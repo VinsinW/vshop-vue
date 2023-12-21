@@ -1,5 +1,6 @@
 import {createRouter, createWebHistory, RouteRecordRaw, RouterOptions} from "vue-router";
 import Layout from '/@/layout'
+import {useStore} from "/@/store";
 
 const routes = [
     {
@@ -28,7 +29,7 @@ const router = createRouter(<RouterOptions>{
 // 路由守卫
 router.beforeEach(async (to, from, next) => {
     // 数据缓存
-    const { user, process } = useBase();
+    const { user, process } = useStore();
 
     // 预先注册路由
     const { isReg, route } = await router.register(to.path);

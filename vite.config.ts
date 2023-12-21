@@ -26,7 +26,7 @@ export default ({mode}:ConfigEnv):UserConfig=>{
      ],
      base: "/",
      server: {
-         host:'172.16.100.6',
+         host:'127.0.0.1',
          port: 9000,
          proxy,
          hmr: {
