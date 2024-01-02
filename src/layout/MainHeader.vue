@@ -4,10 +4,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Header"
-}
+<script lang="ts" setup>
 </script>
 
 <style scoped>

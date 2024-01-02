@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["esnext", "dom", "WebWorker"],
-    "types": ["vite/client", "element-plus/global"],
+    "types": ["vite/client", "element-plus/global", "unplugin-icons/types/vue"],
     "baseUrl": "./",
     "paths": {
       "/@/*": ["./src/*"]

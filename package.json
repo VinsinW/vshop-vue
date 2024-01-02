@@ -9,6 +9,8 @@
     "preview": "vite preview dev"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@iconify-json/ep": "^1.1.14",
     "@types/qs": "^6.9.10",
     "axios": "^1.6.2",
     "element-plus": "^2.4.2",
@@ -20,10 +22,13 @@
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "store": "^2.0.12",
+    "unplugin-icons": "^0.18.1",
     "unplugin-vue-components": "^0.25.2",
     "vue": "^3.3.8"
   },
   "devDependencies": {
+    "@iconify-json/fa": "^1.1.8",
+    "@iconify-json/wi": "^1.1.8",
     "@types/node": "^20.9.3",
     "@types/nprogress": "^0.2.3",
     "@vitejs/plugin-vue": "^4.5.0",
