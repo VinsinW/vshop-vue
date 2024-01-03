@@ -3,10 +3,14 @@ import Layout from '/@/layout'
 import {useStore} from "/@/store";
 import { Loading } from "../utils";
 
+
+// 扫描文件
+const files = import.meta.glob(["/src/modules/*/{views,pages}/**/*", "!**/components"]);
+
 const routes:RouteRecordRaw[] = [
     {
         path: "/login",
-        component: () => import("/@/pages/Login"),
+        component: () => import("/@/pages/login/Login.vue"),
     },
     {
         path: "/",
@@ -14,7 +18,11 @@ const routes:RouteRecordRaw[] = [
         children:[{
             name:'home',
             path:"/",
-            component: () => import("/@/pages/Index"),
+            component: () => import("/@/pages/home/Index.vue"),
+        },{
+            name:'decorate',
+            path:"/decorate/page",
+            component: () => import("/@/pages/decorate/page.vue"),
         }]
     }
 ];

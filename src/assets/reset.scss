@@ -1,8 +1,10 @@
-html,body{
+html,body,ul,li{
     margin: 0;
+    padding: 0;
 }
 .el-main{
-    padding: 12px !important;
+    padding: 10px !important;
+
 }
 .el-footer{
     padding: 0 !important;

@@ -77,9 +77,9 @@
 </template>
 
 <script setup lang="ts">
-import VsSvg from "/@/components/icon/svg";
-import MainFooter from "/@/layout/MainFooter";
-import PicCaptcha from "/@/components/pic-captcha"
+import VsSvg from "/@/components/icon/svg.vue";
+import MainFooter from "/@/layout/MainFooter.vue";
+import PicCaptcha from "/@/components/pic-captcha.vue"
 import { router } from "/@/router";
 
 const saving = ref(false);

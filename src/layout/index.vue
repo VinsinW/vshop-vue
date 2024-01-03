@@ -9,6 +9,7 @@
           <main-left />
         </el-aside>
         <el-container class="oa-main">
+          <process />
           <el-main class="oa-main-container">
             <router-view/>
           </el-main>
@@ -25,9 +26,10 @@
 import MainHeader from "/@/layout/MainHeader.vue";
 import MainLeft from "/@/layout/MainLeft.vue";
 import MainFooter from "/@/layout/MainFooter.vue";
+import Process from "/@/components/process.vue";
 
 export default {
-  components: {MainHeader, MainLeft, MainFooter}
+  components: {Process, MainHeader, MainLeft, MainFooter}
 }
 </script>
 
@@ -49,7 +51,7 @@ export default {
 }
 .oa-main-container{
   background: #ffffff;
-  border-radius:10px;
+  border-radius:4px;
 }
 .oa-footer{
   line-height: 34px;
