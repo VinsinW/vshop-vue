@@ -24,7 +24,6 @@ const base64 = ref("");
 const svg = ref("");
 
 const captcha = ()=>{
-  console.log('生成验证码！')
   return new Promise((resolve)=>{
     setTimeout(()=>{
       const data = {

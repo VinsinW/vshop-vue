@@ -1,6 +1,6 @@
 <template>
   <div>
-    测试
+    模板管理首页
   </div>
 </template>
 

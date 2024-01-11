@@ -301,5 +301,30 @@ export function sleep(duration: number) {
     });
 }
 
+//修正路径
+export function revisePath(path: string) {
+    if (!path) {
+        return "";
+    }
+
+    return path[0] == "/" ? path : `/${path}`;
+}
+
+//创建样式引用
+export function createLink(url: string, id?: string) {
+    const link = document.createElement("link");
+    link.href = url;
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    if (id) {
+        link.id = id;
+    }
+
+    setTimeout(() => {
+        document.getElementsByTagName("head").item(0)?.appendChild(link);
+    }, 0);
+}
+
+
 export { storage };
 export * from "./loading";

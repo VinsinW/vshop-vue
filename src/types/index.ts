@@ -50,3 +50,5 @@ export declare interface Router extends VueRouter {
     register(path: string): Promise<{ route: RouteRecordRaw | undefined; isReg: boolean }>;
     [key: string]: any;
 }
+
+

@@ -68,7 +68,7 @@
     </div>
 
     <div class="banner">
-      <el-image style="width: 320px; height: 320px" :src="url" :fit="fit" />
+      <el-image style="width: 320px; height: 320px" :src="url" />
     </div>
     <div class="copyright">
       <main-footer/>

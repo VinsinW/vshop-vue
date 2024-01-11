@@ -1,10 +1,10 @@
 import  path from "path"
 import { ConfigEnv,UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
+import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import compression from "vite-plugin-compression";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import {viteCreateSvg} from "/@/utils/svg";
 import {proxy} from "./src/config/proxy";
@@ -18,28 +18,18 @@ export default ({mode}:ConfigEnv):UserConfig=>{
      plugins: [
          vue(),
          viteCreateSvg(),
+         vueJsx(),
+         compression(),
          AutoImport({
              imports: ['vue','vue-router'],
              resolvers:[
                  ElementPlusResolver(),
-                 // 自动导入图标组件
-                 IconsResolver({
-                     prefix: 'Icon',
-                 }),
              ],
          }),
          Components({
              resolvers:[
-                 // 自动注册图标组件
-                 IconsResolver({
-                     enabledCollections: ['ep'],
-                 }),
                  ElementPlusResolver(),
              ]
-         }),
-         Icons({
-             compiler: 'vue3',
-             autoInstall: true,
          }),
      ],
      base: "/",
@@ -64,7 +54,7 @@ export default ({mode}:ConfigEnv):UserConfig=>{
              "/#": _resolve("types"),
              "/$": _resolve("src/modules")
          },
-         extensions:['.vue','.ts']
+         extensions: [".vue",".ts",".tsx"]
      },
  }
 }

@@ -2,13 +2,13 @@
   <div class="app-process">
     <ul class="app-process__op">
       <li class="item" @click="router.back">
-        <el-icon><i-ep-arrowLeft /></el-icon>
+        <el-icon><arrowLeft /></el-icon>
       </li>
       <li class="item" @click="toRefresh">
-        <el-icon><i-ep-refreshRight /></el-icon>
+        <el-icon><refreshRight /></el-icon>
       </li>
       <li class="item" @click="router.push('/')">
-        <el-icon><i-ep-dataAnalysis /></el-icon>
+        <el-icon><dataAnalysis /></el-icon>
       </li>
     </ul>
   </div>

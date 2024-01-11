@@ -22,15 +22,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import MainHeader from "/@/layout/MainHeader.vue";
-import MainLeft from "/@/layout/MainLeft.vue";
-import MainFooter from "/@/layout/MainFooter.vue";
-import Process from "/@/components/process.vue";
-
-export default {
-  components: {Process, MainHeader, MainLeft, MainFooter}
-}
+<script lang="ts" setup>
+import MainHeader from "/@/layout/MainHeader";
+import MainLeft from "/@/layout/MainLeft";
+import MainFooter from "/@/layout/MainFooter";
+import Process from "/@/components/process";
 </script>
 
 <style  scoped>

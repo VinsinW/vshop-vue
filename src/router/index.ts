@@ -23,6 +23,14 @@ const routes:RouteRecordRaw[] = [
             name:'decorate',
             path:"/decorate/page",
             component: () => import("/@/pages/decorate/page.vue"),
+        },{
+            name:'decorate',
+            path:"/decorate/index",
+            component: () => import("/@/pages/decorate/Index.vue"),
+        },{
+            name:'/decorate/editor',
+            path:"/decorate/editor",
+            component: () => import("/@/pages/decorate/editor.vue"),
         }]
     }
 ];
@@ -123,8 +131,11 @@ router.register = async function (path: string) {
     // 当前路由是否注册
     const isReg = Boolean(router.find(path));
 
+
+
     if (!isReg) {
-        const { menu } = useBase();
+        const { menu } = useStore();
+
 
         // 等待应用配置加载完
         await Loading.wait();
@@ -132,6 +143,7 @@ router.register = async function (path: string) {
         // 待注册列表
         const list: any[] = [];
 
+        console.log(menu)
         // 动态菜单数据
         menu.routes.find((e) => {
             list.push({

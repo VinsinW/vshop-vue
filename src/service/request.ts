@@ -19,6 +19,7 @@ let queue:Array<(token:string)=>void> = [];
 //是否刷新中
 let isRefreshing =false;
 
+//请求拦截
 request.interceptors.request.use(
     (req:any)=>{
         if (req.url) {
@@ -26,22 +27,36 @@ request.interceptors.request.use(
             NProgress.start();
 
             //请求记录
-            console.group(req.url);
-            console.log("method:", req.method);
-            console.table("data:", req.method == "get" ? req.params : req.data);
-            console.groupEnd();
+            // console.group(req.url);
+            // console.log("method:", req.method);
+            // console.table("data:", req.method == "get" ? req.params : req.data);
+            // console.groupEnd();
         }
         return req;
     }
 )
 
+//响应拦截
 request.interceptors.response.use(
     (res) => {
         NProgress.done();
 
-        console.log(res.data);
+        // console.log(res.data);
         if (!res?.data) {
             return res;
+        }
+
+        const { code, data, message } = res.data;
+
+        if (!code) {
+            return res.data;
+        }
+
+        switch (code) {
+            case 1000:
+                return data;
+            default:
+                return Promise.reject({ code, message });
         }
     }
 )
