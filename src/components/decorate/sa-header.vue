@@ -1,13 +1,13 @@
 <template>
   <div class="sa-header sa-flex sa-row-between">
     <div class="left sa-flex">
-      <div class="header-button sa-flex sa-row-center is-active el-tooltip__trigger el-tooltip__trigger">
+      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('Basic')" :class="mode==='Basic'? 'is-active':''">
         <el-icon><Menu /></el-icon>
       </div>
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('Home')" :class="mode==='Home'? 'is-active':''">
         <el-icon><HomeFilled /></el-icon>
       </div>
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('User')" :class="mode==='User'? 'is-active':''">
         <el-icon><UserFilled /></el-icon>
       </div>
     </div>
@@ -31,20 +31,29 @@
       <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
         <i class="iconfont iconApp"></i>
       </div>
-      <div class="el-tooltip__trigger">
-
-      </div>
+      <div class="el-divider el-divider--vertical" role="separator" style="--el-border-style: solid;"><!--v-if--></div>
     </div>
     <div class="right sa-flex">
       <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
-        <el-icon class="icon-vs"><vs-svg name="view"></vs-svg></el-icon>
+        <i class="iconfont iconpreview"></i>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import VsSvg from "/@/components/icon/svg.vue";
+const props = defineProps({
+  mode:{
+    type:String,
+    default:''
+  }
+})
+const emits = defineEmits(['evenSwitchMode'])
+const switchMode:string = (mode:string)=>{
+  emits('evenSwitchMode',mode)
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -87,6 +96,13 @@ import VsSvg from "/@/components/icon/svg.vue";
     height: 40px;
     border-right: 1px solid var(--sa-border);
     cursor: pointer;
+    &.is-active {
+      background: var(--el-color-primary);
+      color: #ffffff;
+      .el-icon{
+        color: var(--sa-background-assist);
+      }
+    }
   }
   .sa-row-center {
     justify-content: center;
@@ -100,5 +116,9 @@ import VsSvg from "/@/components/icon/svg.vue";
   vertical-align: middle;
   position: relative;
   border-left: 1px var(--el-border-color) var(--el-border-style);
+}
+.right .header-button {
+  border-right: none;
+  border-left: 1px solid var(--sa-border);
 }
 </style>

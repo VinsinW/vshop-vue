@@ -78,7 +78,7 @@ const handleChange = (val: string[]) => {
   .el-collapse {
     --el-collapse-border-color: var(--el-border-color-lighter);
     --el-collapse-header-height: 32px;
-    --el-collapse-header-bg-color: var(--el-fill-color-blank);
+    --el-collapse-header-bg-color: #f5f5f5;
     --el-collapse-header-text-color: var(--el-text-color-primary);
     --el-collapse-header-font-size: 13px;
     --el-collapse-content-bg-color: var(--el-fill-color-blank);
@@ -122,6 +122,9 @@ const handleChange = (val: string[]) => {
       width: 40px;
       height: 40px;
       margin-bottom: 8px;
+    }
+    .item:nth-of-type(3n) {
+      border-right: none;
     }
   }
 }

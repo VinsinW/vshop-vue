@@ -11,6 +11,11 @@
     --sa-bg-assist-1: #e7e7ea;
     --sa-title: #262626;
     --sa-table-header-bg: #f5f5f5;
+    --el-font-size-base: 12px !important;
+    --sa-space: #f3f3f3;
+    --t-bg-hover: #f4f3fc;
+    --el-color-primary: #0076f6 !important;
+    --sa-background-assist: #fdfdfd;
 }
 .left-main .el-collapse-item__header {
     padding: 0 12px !important;
@@ -36,4 +41,7 @@
     line-height: 32px;
     padding: 0 12px 0 0;
     box-sizing: border-box;
+}
+.custom-radio-button .el-radio-button__inner {
+    padding: 1px 6px;
 }
