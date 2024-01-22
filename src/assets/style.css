@@ -4,17 +4,21 @@
     overflow: hidden;
 }
 :root{
-    --sa-subfont: #8c8c8c;
-    --sa-border: #d9d9d9;
     --el-border-color: #dcdfe6;
     --el-border-style: solid;
+    --el-font-size-base: 12px !important;
+    --el-color-primary: #0076f6 !important;
+    --el-header-height: fit-content !important;
+    --el-header-padding: 0 !important;
+    --t-bg-hover: #f7fbff;
+    --t-bg-active: #e5f2fe;
+    --sa-font: #595959;
+    --sa-subfont: #8c8c8c;
+    --sa-border: #d9d9d9;
+    --sa-space: #f3f3f3;
     --sa-bg-assist-1: #e7e7ea;
     --sa-title: #262626;
     --sa-table-header-bg: #f5f5f5;
-    --el-font-size-base: 12px !important;
-    --sa-space: #f3f3f3;
-    --t-bg-hover: #f4f3fc;
-    --el-color-primary: #0076f6 !important;
     --sa-background-assist: #fdfdfd;
 }
 .left-main .el-collapse-item__header {

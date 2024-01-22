@@ -5,7 +5,7 @@ import { Loading } from "../utils";
 
 
 // 扫描文件
-const files = import.meta.glob(["/src/modules/*/{views,pages}/**/*", "!**/components"]);
+const files = import.meta.glob(["/src/modules/*/{views,pages}/**/*", "!**/template"]);
 
 const routes:RouteRecordRaw[] = [
     {

@@ -29,7 +29,8 @@ export default ({mode}:ConfigEnv):UserConfig=>{
          Components({
              resolvers:[
                  ElementPlusResolver(),
-             ]
+             ],
+             directoryAsNamespace:true
          }),
      ],
      base: "/",

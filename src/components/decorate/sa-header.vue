@@ -1,13 +1,13 @@
 <template>
   <div class="sa-header sa-flex sa-row-between">
     <div class="left sa-flex">
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('Basic')" :class="mode==='Basic'? 'is-active':''">
+      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('basic')" :class="{'is-active': mode==='basic'}">
         <el-icon><Menu /></el-icon>
       </div>
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('Home')" :class="mode==='Home'? 'is-active':''">
+      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('home')" :class="{'is-active': mode==='home'}">
         <el-icon><HomeFilled /></el-icon>
       </div>
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('User')" :class="mode==='User'? 'is-active':''">
+      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('user')" :class="{'is-active': mode==='user'}">
         <el-icon><UserFilled /></el-icon>
       </div>
     </div>

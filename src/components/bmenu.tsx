@@ -3,6 +3,7 @@ import { Menu } from "/@/modules/types";
 import { useRoute, useRouter } from "vue-router";
 import { useBrowser } from "/@/hook/browser";
 import { useStore } from "/@/store";
+import 'element-plus/dist/index.css';
 
 export default defineComponent({
     name: "b-menu",
