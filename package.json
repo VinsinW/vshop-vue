@@ -27,7 +27,8 @@
     "unplugin-icons": "^0.18.1",
     "unplugin-vue-components": "^0.25.2",
     "vite-plugin-compression": "^0.5.1",
-    "vue": "^3.3.8"
+    "vue": "^3.3.8",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@iconify-json/fa": "^1.1.8",

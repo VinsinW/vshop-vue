@@ -1,0 +1,70 @@
+{
+  "id": 3531,
+  "decorate_id": 1392,
+  "type": "basic",
+  "page": {
+    "tabbar": {
+      "mode": 1,
+      "layout": 1,
+      "inactiveColor": "#8C8C8C",
+      "activeColor": "#E9B461",
+      "list": [
+        {
+          "inactiveIcon": "/src/assets/images/decorate/menu_icon/home.png",
+          "activeIcon": "/src/assets/images/decorate/menu_icon/home_cur.gif",
+          "url": "/pages/index/index",
+          "text": "首页"
+        },
+        {
+          "inactiveIcon": "/src/assets/images/decorate/menu_icon/class.png",
+          "activeIcon": "/src/assets/images/decorate/menu_icon/class_cur.gif",
+          "url": "/pages/index/category?id=21",
+          "text": "分类"
+        },
+        {
+          "inactiveIcon": "/src/assets/images/decorate/menu_icon/shop.png",
+          "activeIcon": "/src/assets/images/decorate/menu_icon/shop_cur.gif",
+          "url": "/pages/index/cart",
+          "text": "购物车"
+        },
+        {
+          "inactiveIcon": "/src/assets/images/decorate/menu_icon/my.png",
+          "activeIcon": "/src/assets/images/decorate/menu_icon/my_cur.gif",
+          "url": "/pages/index/user",
+          "text": "我的"
+        }
+      ],
+      "background": {
+        "type": "color",
+        "bgImage": "",
+        "bgColor": "#FFFFFF"
+      }
+    },
+    "floatMenu": {
+      "show": 0,
+      "mode": 1,
+      "isText": 0,
+      "list": [
+        {
+          "src": "",
+          "url": "",
+          "title": {
+            "text": "",
+            "color": ""
+          }
+        }
+      ]
+    },
+    "popupImage": {
+      "list": [
+        {
+          "src": "/storage/decorate/20221115/6bfd03d0ad7f3d7f6ba7494c903cdc0c.png",
+          "url": "/pages/index/category?id=21",
+          "show": 2
+        }
+      ]
+    },
+    "theme": "golden"
+  },
+  "image": ""
+}

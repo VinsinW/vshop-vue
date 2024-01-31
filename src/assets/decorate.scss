@@ -258,9 +258,24 @@
     .move {
       height: 32px;
       margin: 0 -8px 16px;
+      .sortable-drag {
+        font-size: 16px;
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      .list-delete {
+        color: #ff4d4f;
+        cursor: pointer;
+      }
     }
     .move > * {
       display: none;
+    }
+    &:hover .move>* {
+      display: block;
+    }
+    .iconmove:before {
+      content: "\e679";
     }
   }
 }

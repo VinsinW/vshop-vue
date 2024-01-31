@@ -43,6 +43,9 @@
 
 <script lang="ts" setup>
 import VsSvg from "/@/components/icon/svg.vue";
+import {service} from "/@/service";
+import {mitt} from "/@/utils/mitt";
+import {useDiyPageStore} from "/@/store/decorate/diypage";
 const props = defineProps({
   mode:{
     type:String,
@@ -53,7 +56,6 @@ const emits = defineEmits(['evenSwitchMode'])
 const switchMode:string = (mode:string)=>{
   emits('evenSwitchMode',mode)
 }
-
 </script>
 
 <style lang="scss" scoped>

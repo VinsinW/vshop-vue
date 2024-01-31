@@ -15,6 +15,7 @@
 
 <script lang="ts" setup>
 import { mitt } from "/@/utils/mitt";
+import {service} from "/@/service";
 const props = defineProps({
   mode:{
     type:String,
@@ -153,7 +154,6 @@ function handleClick(group,template){
     leftData.activeTheme = template
   }
 }
-
 </script>
 
 <style lang="scss" scoped>

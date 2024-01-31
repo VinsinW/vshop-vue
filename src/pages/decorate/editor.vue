@@ -17,14 +17,14 @@
         <!--手机模拟DIY Begin-->
         <div  class="center sa-flex sa-row-center">
           <div id="html2canvasWrap" class="center-main basic is-android">
-            <diy-page :mode="mode" />
+            <diy-page v-if="basicFlag&&basicData" :mode="mode" :basicData="basicData" />
           </div>
         </div>
         <!--手机模拟DIY End-->
 
         <!--组件属性 Begin-->
         <div class="right" :class="isCollapse.right?'is-collapse':''">
-          <right-panel  :mode="mode" />
+          <right-panel v-if="basicFlag&&basicData"  :mode="mode" :basicData="basicData"/>
           <div class="right-icon sa-flex sa-row-center" @click="handleCollapse('right')">
             <el-icon><ArrowRight /> </el-icon>
           </div>
@@ -41,6 +41,7 @@ import SaHeader from "/@/components/decorate/sa-header.vue"
 import LeftMenu from "/@/components/decorate/left-menu.vue"
 import DiyPage from "/@/components/decorate/diy-page.vue"
 import RightPanel from "/@/components/decorate/right-panel.vue"
+import {useDiyPageStore} from "/@/store/decorate/diypage";
 
 
 /**
@@ -63,6 +64,17 @@ const mode = ref('basic');
 function handleSwitchMode(val){
   mode.value = val
 }
+
+const basicData = ref()
+const basicFlag = ref(false)
+const diyPage = useDiyPageStore()
+//获取页面DIY配置数据
+async function loadBasic(){
+  await diyPage.setBasicPage()
+  basicData.value = diyPage.getBasicPage
+  basicFlag.value = true
+}
+loadBasic()
 </script>
 
 <style lang="scss" scoped>

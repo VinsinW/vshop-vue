@@ -146,7 +146,7 @@ export const useMenuStore = defineStore("menu", function () {
         } else {
             // 动态菜单
             // await service.base.comm.permmenu().then(next);
-            service.request('http://127.0.0.1:9000/src/json/permmenu.json').then(next)
+            await service.request('http://127.0.0.1:9000/src/json/permmenu.json').then(next)
         }
     }
 

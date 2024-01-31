@@ -1,6 +1,6 @@
 <template>
   <div class="comp-wrap">
-      <tabbar v-if="tempId=='tabbar' && mode=='basic'"/>
+      <tabbar v-if="tempId=='tabbar' && mode=='basic' && basicData" :tabbarData="basicData.page.tabbar"/>
       <float-menu v-if="tempId=='floatMenu' && mode=='basic'"/>
       <popup-image v-if="tempId=='popupImage' && mode=='basic'"/>
   </div>
@@ -16,15 +16,26 @@ const props = defineProps({
   mode:{
     type:String,
     default:''
-  }
+  },
+  basicData:{
+    type:Object
+  },
 })
 
 const tempId = ref('tabbar')
 
 
-mitt.on('event.active',(template)=>{
-  tempId.value = template
+onMounted(()=>{
+  mitt.on('event.active',(template)=>{
+      tempId.value = template
+  })
 })
+
+onBeforeUnmount(()=>{
+  mitt.off('event.active')
+})
+
+
 
 </script>
 
