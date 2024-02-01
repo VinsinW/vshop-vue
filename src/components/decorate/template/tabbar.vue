@@ -1,5 +1,5 @@
 <template>
-  <div class="tabbar sa-flex" style="background:  0% 0% / 100% 58px no-repeat rgb(255, 255, 255);">
+  <div class="tabbar sa-flex" :style="{background:tabbarData.background.type==='color'?tabbarData.background.bgColor:'url('+tabbarData.background.bgImage+') 0% 0% / 100% 58px no-repeat'}">
     <div class="tabbar-item" v-for="(temp,index) in tabbarData.list" :style="{width:100/tabbarData.list.length+'%'}" :class="{'is-center':tabbarData.mode===2&&tabbarData.list.length%2===1&&index===Math.floor(tabbarData.list.length/2)}">
       <div class="top sa-flex sa-row-center">
         <div class="sa-image" style="width: 24px; height: 24px; border-radius: 0px;">

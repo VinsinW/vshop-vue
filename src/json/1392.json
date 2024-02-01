@@ -36,7 +36,7 @@
       ],
       "background": {
         "type": "color",
-        "bgImage": "",
+        "bgImage": "/src/assets/images/banner/banner01.png",
         "bgColor": "#FFFFFF"
       }
     },

@@ -2,6 +2,23 @@ html,body,ul,li{
     margin: 0;
     padding: 0;
 }
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4, h5, h6, em, i, b, button, input, select, figure, figcaption {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    background: none;
+    font-weight: normal;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, sans-serif;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+}
+.d-color-picker .el-color-picker__color {
+    border: none;
+}
 .el-main{
     padding: 0 !important;
     overflow: hidden !important;
@@ -16,4 +33,11 @@ html,body,ul,li{
 img {
     border-style: none;
     vertical-align: middle;
+}
+.d-color-picker .el-color-picker__trigger {
+    display: flex;
+    padding: 0;
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+    overflow: hidden;
 }

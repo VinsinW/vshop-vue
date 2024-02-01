@@ -49,3 +49,9 @@
 .custom-radio-button .el-radio-button__inner {
     padding: 1px 6px;
 }
+.mr-1 {
+    margin-right: 5px !important;
+}
+.pl-2 {
+    padding-left: 10px !important;
+}
