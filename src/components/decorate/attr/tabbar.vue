@@ -73,7 +73,7 @@
                           </template>
                         </el-image>
                         <div v-if="element.inactiveIcon" class="mask">
-                          <el-icon><CircleCloseFilled /></el-icon>
+                          <el-icon @click="deleteImg(element,'inactiveIcon')"><CircleCloseFilled /></el-icon>
                         </div>
                       </div>
                     </div>
@@ -94,7 +94,7 @@
                           </template>
                         </el-image>
                         <div v-if="element.activeIcon" class="mask">
-                          <el-icon><CircleCloseFilled /></el-icon>
+                          <el-icon @click="deleteImg(element,'activeIcon')"><CircleCloseFilled /></el-icon>
                         </div>
                       </div>
                     </div>
@@ -143,7 +143,7 @@
                   </div>
                 </template>
               </el-image>
-              <div v-if="tabbarData.background.bgImage" class="mask">
+              <div v-if="tabbarData.background.bgImage" class="mask" @click="deleteImg(tabbarData.background,'bgImage')">
                 <el-icon><CircleCloseFilled /></el-icon>
               </div>
             </div>
@@ -198,6 +198,14 @@ const addMenuItem = ()=>{
    text: ""
  }
   props.tabbarData.list.push(itemMenu)
+}
+/**
+ * 删除选项图片
+ * @param e  所选项
+ * @param key 所选项图片属性
+ */
+const deleteImg = (e,key)=>{
+  e[key] = ''; //图片属性赋值为空
 }
 
 

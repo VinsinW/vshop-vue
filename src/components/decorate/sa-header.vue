@@ -35,7 +35,7 @@
     </div>
     <div class="right sa-flex">
       <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
-        <i class="iconfont iconpreview"></i>
+        <i class="iconfont iconpreview" @click="handleSave()"></i>
       </div>
     </div>
   </div>
@@ -46,15 +46,25 @@ import VsSvg from "/@/components/icon/svg.vue";
 import {service} from "/@/service";
 import {mitt} from "/@/utils/mitt";
 import {useDiyPageStore} from "/@/store/decorate/diypage";
+
 const props = defineProps({
   mode:{
     type:String,
     default:''
+  },
+  basicData:{
+    type:Object,
+    default:''
   }
 })
+
 const emits = defineEmits(['evenSwitchMode'])
 const switchMode:string = (mode:string)=>{
   emits('evenSwitchMode',mode)
+}
+
+function handleSave(){
+  console.log("保存数据：",props.basicData)
 }
 </script>
 

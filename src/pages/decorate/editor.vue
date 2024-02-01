@@ -2,7 +2,7 @@
   <div id="index" class="page-index  panel panel-default panel-intro">
     <el-container class="panel-block">
       <el-header>
-        <sa-header :mode="mode" @evenSwitchMode="handleSwitchMode"></sa-header>
+        <sa-header v-if="basicFlag&&basicData" :mode="mode" :basicData="basicData" @evenSwitchMode="handleSwitchMode"></sa-header>
       </el-header>
       <el-main class="page-main sa-flex">
         <!--左侧设置栏目 Begin-->
