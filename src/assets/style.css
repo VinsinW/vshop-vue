@@ -6,10 +6,18 @@
 :root{
     --el-border-color: #dcdfe6;
     --el-border-style: solid;
-    --el-font-size-base: 12px !important;
+    --el-font-size-base: 14px !important;
     --el-color-primary: #0076f6 !important;
     --el-header-height: fit-content !important;
     --el-header-padding: 0 !important;
+    --el-popover-bg-color: var(--el-bg-color-overlay);
+    --el-popover-font-size: var(--el-font-size-base);
+    --el-popover-border-color: var(--el-border-color-lighter);
+    --el-popover-padding: 12px;
+    --el-popover-padding-large: 18px 20px;
+    --el-popover-title-font-size: 16px;
+    --el-popover-title-text-color: var(--el-text-color-primary);
+    --el-popover-border-radius: 4px;
     --t-bg-hover: #f7fbff;
     --t-bg-active: #e5f2fe;
     --sa-font: #595959;
@@ -54,4 +62,11 @@
 }
 .pl-2 {
     padding-left: 10px !important;
+}
+
+.el-form-item .tip{
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+    color: #999999;
 }

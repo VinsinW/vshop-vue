@@ -58,7 +58,7 @@
     "popupImage": {
       "list": [
         {
-          "src": "/storage/decorate/20221115/6bfd03d0ad7f3d7f6ba7494c903cdc0c.png",
+          "src": "/src/assets/images/banner/banner01.png",
           "url": "/pages/index/category?id=21",
           "show": 2
         }

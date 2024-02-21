@@ -1,0 +1,499 @@
+{
+  "id": 3676,
+  "decorate_id": 1447,
+  "type": "home",
+  "page": {
+    "data": [
+      {
+        "type": "searchBlock",
+        "data": {
+          "placeholder": "请输入关键词",
+          "borderRadius": 27,
+          "keywords": []
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": "#FFFFFF"
+          },
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "marginBottom": 8,
+          "borderRadiusTop": 0,
+          "borderRadiusBottom": 0,
+          "padding": 8
+        }
+      },
+      {
+        "type": "imageBanner",
+        "data": {
+          "mode": 1,
+          "indicator": 1,
+          "list": [
+            {
+              "title": "banner01",
+              "type": "image",
+              "src": "/storage/decorate/20221115/045e097320773c23321a2d3a33a9da0b.png",
+              "poster": "",
+              "url": "/pages/index/category?id=21"
+            }
+          ],
+          "space": 0
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": "#FFFFFF"
+          },
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 0,
+          "marginBottom": 10,
+          "borderRadiusTop": 8,
+          "borderRadiusBottom": 8,
+          "padding": 0
+        }
+      },
+      {
+        "type": "menuButton",
+        "data": {
+          "layout": 1,
+          "col": 5,
+          "row": 1,
+          "list": [
+            {
+              "src": "/storage/decorate/20221115/a83953b2f0db3f387584a78a041fccbf.png",
+              "title": {
+                "text": "耳机音箱",
+                "color": "#333333"
+              },
+              "url": "/pages/index/category?id=21",
+              "badge": {
+                "show": 0,
+                "text": "",
+                "color": "#FFFFFF",
+                "bgColor": "#FF6000"
+              }
+            },
+            {
+              "src": "/storage/decorate/20221115/85e17aecf52b9f367353ceef450d18d0.png",
+              "title": {
+                "text": "笔记本",
+                "color": "#333333"
+              },
+              "url": "/pages/index/category?id=21",
+              "badge": {
+                "show": 0,
+                "text": "",
+                "color": "#FFFFFF",
+                "bgColor": "#FF6000"
+              }
+            },
+            {
+              "src": "/storage/decorate/20221115/c0dde28052c763691491a4dd7f5f0dc7.png",
+              "title": {
+                "text": "电脑",
+                "color": "#333333"
+              },
+              "url": "/pages/index/category?id=21",
+              "badge": {
+                "show": 0,
+                "text": "",
+                "color": "#FFFFFF",
+                "bgColor": "#FF6000"
+              }
+            },
+            {
+              "src": "/storage/decorate/20221115/b043e999f27c299374bd7ab19deec2f1.png",
+              "title": {
+                "text": "相机",
+                "color": "#333333"
+              },
+              "url": "/pages/index/category?id=21",
+              "badge": {
+                "show": 0,
+                "text": "",
+                "color": "#FFFFFF",
+                "bgColor": "#FF6000"
+              }
+            },
+            {
+              "src": "/storage/decorate/20221115/b5f6e0543a90f542095b468c98b1f8cd.png",
+              "title": {
+                "text": "智能手表",
+                "color": "#333333"
+              },
+              "url": "/pages/index/category?id=21",
+              "badge": {
+                "show": 0,
+                "text": "",
+                "color": "#FFFFFF",
+                "bgColor": "#FF6000"
+              }
+            }
+          ]
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": ""
+          },
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "marginBottom": 10,
+          "borderRadiusTop": 0,
+          "borderRadiusBottom": 0,
+          "padding": 0
+        }
+      },
+      {
+        "type": "coupon",
+        "data": {
+          "couponIds": [
+            1,
+            3,
+            2
+          ],
+          "mode": 2,
+          "fill": {
+            "color": "#E9B461",
+            "bgImage": "/storage/decorate/20221115/046f2fddfc4f6778ff890a62547d8a1a.png"
+          },
+          "button": {
+            "color": "#434343",
+            "bgColor": ""
+          },
+          "space": 0
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": "#E9B461"
+          },
+          "marginLeft": 8,
+          "marginRight": 8,
+          "marginTop": 0,
+          "marginBottom": 10,
+          "borderRadiusTop": 8,
+          "borderRadiusBottom": 8,
+          "padding": 0
+        }
+      },
+      {
+        "type": "imageCube",
+        "data": {
+          "borderRadiusTop": 8,
+          "borderRadiusBottom": 8,
+          "space": 7,
+          "list": [
+            {
+              "width": 2,
+              "height": 2,
+              "top": 0,
+              "left": 0,
+              "src": "/storage/decorate/20221115/aead1d736d0cddba13ffbbb5e8603629.png",
+              "url": "/pages/index/category?id=21"
+            },
+            {
+              "width": 2,
+              "height": 1,
+              "top": 0,
+              "left": 2,
+              "src": "/storage/decorate/20221115/968a4300d7b2e14794cdd11e140d4c68.png",
+              "url": "/pages/index/category?id=21"
+            },
+            {
+              "width": 2,
+              "height": 1,
+              "top": 1,
+              "left": 2,
+              "src": "/storage/decorate/20221115/629ac892b94afeb3bd547c9f6d53e432.png",
+              "url": "/pages/index/category?id=21"
+            }
+          ]
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": ""
+          },
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 0,
+          "marginBottom": 10,
+          "borderRadiusTop": 0,
+          "borderRadiusBottom": 0,
+          "padding": 0
+        }
+      },
+      {
+        "type": "titleBlock",
+        "data": {
+          "src": "/storage/decorate/20221115/495059abd025e7bb657c5983e3b30a52.png",
+          "location": "left",
+          "skew": 34,
+          "title": {
+            "text": "精选榜单",
+            "color": "#262626",
+            "textFontSize": 16,
+            "other": [
+              "bold"
+            ]
+          },
+          "subtitle": {
+            "text": "",
+            "color": "#8c8c8c",
+            "textFontSize": 0,
+            "other": []
+          },
+          "more": {
+            "show": 1,
+            "url": "/pages/index/category?id=21"
+          }
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": ""
+          },
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "borderRadiusTop": 0,
+          "borderRadiusBottom": 0,
+          "padding": 0,
+          "height": 40
+        }
+      },
+      {
+        "type": "goodsCard",
+        "data": {
+          "mode": 3,
+          "goodsFields": {
+            "title": {
+              "show": 1,
+              "color": "#262626"
+            },
+            "subtitle": {
+              "show": 1,
+              "color": "#8C8C8C"
+            },
+            "price": {
+              "show": 1,
+              "color": "#FF3000"
+            },
+            "original_price": {
+              "show": 1,
+              "color": "#C4C4C4"
+            },
+            "sales": {
+              "show": 1,
+              "color": "#C4C4C4"
+            },
+            "stock": {
+              "show": 0,
+              "color": "#C4C4C4"
+            }
+          },
+          "buyNowStyle": {
+            "mode": 1,
+            "text": "立即购买",
+            "color1": "#E9B461",
+            "color2": "#EECC89",
+            "src": ""
+          },
+          "tagStyle": {
+            "show": 0,
+            "src": ""
+          },
+          "goodsIds": [
+            17,
+            18,
+            19
+          ],
+          "borderRadiusTop": 6,
+          "borderRadiusBottom": 6,
+          "space": 8
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": ""
+          },
+          "marginLeft": 8,
+          "marginRight": 8,
+          "marginTop": 0,
+          "marginBottom": 10,
+          "borderRadiusTop": 0,
+          "borderRadiusBottom": 0,
+          "padding": 0
+        }
+      },
+      {
+        "type": "titleBlock",
+        "data": {
+          "src": "/storage/decorate/20221115/6586d6090fca4fab8fecbaeb53cb4656.png",
+          "location": "left",
+          "skew": 34,
+          "title": {
+            "text": "热销商品",
+            "color": "#262626",
+            "textFontSize": 16,
+            "other": [
+              "bold"
+            ]
+          },
+          "subtitle": {
+            "text": "",
+            "color": "#8c8c8c",
+            "textFontSize": 0,
+            "other": []
+          },
+          "more": {
+            "show": 1,
+            "url": "/pages/index/category?id=21"
+          }
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": ""
+          },
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "borderRadiusTop": 0,
+          "borderRadiusBottom": 0,
+          "padding": 0,
+          "height": 40
+        }
+      },
+      {
+        "type": "goodsCard",
+        "data": {
+          "mode": 2,
+          "goodsFields": {
+            "title": {
+              "show": 1,
+              "color": "#262626"
+            },
+            "subtitle": {
+              "show": 1,
+              "color": "#8C8C8C"
+            },
+            "price": {
+              "show": 1,
+              "color": "#FF3000"
+            },
+            "original_price": {
+              "show": 1,
+              "color": "#C4C4C4"
+            },
+            "sales": {
+              "show": 1,
+              "color": "#C4C4C4"
+            },
+            "stock": {
+              "show": 0,
+              "color": "#C4C4C4"
+            }
+          },
+          "buyNowStyle": {
+            "mode": 2,
+            "text": "立即购买",
+            "color1": "#E9B461",
+            "color2": "#EECC89",
+            "src": "/storage/decorate/20221115/fd8c70d6121f801a333262bbb1459dfd.png"
+          },
+          "tagStyle": {
+            "show": 0,
+            "src": ""
+          },
+          "goodsIds": [
+            14,
+            16,
+            12,
+            8,
+            9,
+            21
+          ],
+          "borderRadiusTop": 6,
+          "borderRadiusBottom": 6,
+          "space": 8
+        },
+        "style": {
+          "background": {
+            "type": "color",
+            "bgImage": "",
+            "bgColor": ""
+          },
+          "marginLeft": 8,
+          "marginRight": 8,
+          "marginTop": 0,
+          "marginBottom": 10,
+          "borderRadiusTop": 0,
+          "borderRadiusBottom": 0,
+          "padding": 0
+        }
+      }
+    ],
+    "style": {
+      "background": {
+        "color": "#F6F6F6",
+        "src": ""
+      },
+      "navbar": {
+        "mode": "normal",
+        "alwaysShow": 0,
+        "type": "color",
+        "color": "#FFFFFF",
+        "src": "",
+        "list": {
+          "mp": [
+            {
+              "width": 2,
+              "height": 1,
+              "top": 0,
+              "left": 3,
+              "type": "text",
+              "text": "首页",
+              "textColor": "#333333",
+              "src": "",
+              "url": "",
+              "placeholder": "",
+              "borderRadius": 0
+            }
+          ],
+          "app": [
+            {
+              "width": 2,
+              "height": 1,
+              "top": 0,
+              "left": 3,
+              "type": "text",
+              "text": "首页",
+              "textColor": "#333333",
+              "src": "",
+              "url": "",
+              "placeholder": "",
+              "borderRadius": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "image": "https://file.sheepjs.com/storage/decorate/20230110/e0c0ff352b0598957cd5323978114b17.png"
+}

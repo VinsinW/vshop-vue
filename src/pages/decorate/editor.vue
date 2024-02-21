@@ -7,7 +7,7 @@
       <el-main class="page-main sa-flex">
         <!--左侧设置栏目 Begin-->
         <div class="left" :class="isCollapse.left?'is-collapse':''">
-          <left-menu :mode="mode" />
+          <left-menu v-if="basicFlag&&basicData" :mode="mode" :basicData="basicData" />
           <div class="left-icon sa-flex sa-row-center" @click="handleCollapse('left')">
             <el-icon><ArrowLeft /></el-icon>
           </div>
@@ -15,16 +15,17 @@
         <!--左侧设置栏目 End-->
 
         <!--手机模拟DIY Begin-->
-        <div  class="center sa-flex sa-row-center">
+        <div  class="center sa-flex sa-row-center" @click="handlePage">
           <div id="html2canvasWrap" class="center-main basic is-android">
-            <diy-page v-if="basicFlag&&basicData" :mode="mode" :basicData="basicData" />
+            <diy-page v-if="mode=='basic'&&basicFlag&&basicData" :mode="mode" :basicData="basicData" />
+            <diy-page v-if="mode=='home'&&diyPage" :mode="mode" :diyPage="diyPage" />
           </div>
         </div>
         <!--手机模拟DIY End-->
 
         <!--组件属性 Begin-->
         <div class="right" :class="isCollapse.right?'is-collapse':''">
-          <right-panel v-if="basicFlag&&basicData"  :mode="mode" :basicData="basicData"/>
+          <right-panel v-if="basicFlag&&basicData"  :mode="mode" :basicData="basicData" :diyPage="diyPage" />
           <div class="right-icon sa-flex sa-row-center" @click="handleCollapse('right')">
             <el-icon><ArrowRight /> </el-icon>
           </div>
@@ -41,7 +42,9 @@ import SaHeader from "/@/components/decorate/sa-header.vue"
 import LeftMenu from "/@/components/decorate/left-menu.vue"
 import DiyPage from "/@/components/decorate/diy-page.vue"
 import RightPanel from "/@/components/decorate/right-panel.vue"
-import {useDiyPageStore} from "/@/store/decorate/diypage";
+import {mitt} from "/@/utils/mitt";
+import {isEmpty} from "lodash-es";
+import {service} from "/@/service";
 
 
 /**
@@ -63,18 +66,68 @@ function handleCollapse(direction){
 const mode = ref('basic');
 function handleSwitchMode(val){
   mode.value = val
+  if(val=='home'){
+    getHomePageService()
+  }
+}
+
+/**
+ * 切换HOME页面
+ */
+function handlePage(){
+  if(mode.value == 'home'){
+    const template = {
+      group:'home',
+      name: '页面设置',
+      type: 'page'
+    }
+    mitt.emit('event.active',template)
+    getHomePageService()
+  }
 }
 
 const basicData = ref()
+const diyPage= ref()
 const basicFlag = ref(false)
-const diyPage = useDiyPageStore()
+
 //获取页面DIY配置数据
-async function loadBasic(){
-  await diyPage.setBasicPage()
-  basicData.value = diyPage.getBasicPage
-  basicFlag.value = true
+// async function loadBasic(){
+//   await diyPage.setBasicPage()
+//   basicData.value = diyPage.getBasicPage
+//   basicFlag.value = true
+// }
+// loadBasic()
+
+/**
+ * 获取基础配置数据
+ */
+async function getBasicPageService(){
+  function next(res){
+    basicData.value = res
+    basicFlag.value = true
+  }
+  if(isEmpty(basicData.value)){
+    await service.request('http://127.0.0.1:9000/src/json/1392.json').then(next)
+  } else {
+    next(basicData.value)
+  }
 }
-loadBasic()
+getBasicPageService()
+
+/**
+ * 获取首页配置数据
+ */
+async function getHomePageService(){
+  function next(res){
+    diyPage.value = res
+  }
+  if(isEmpty(diyPage.value)){
+    await service.request('http://127.0.0.1:9000/src/json/1392home.json').then(next)
+  } else {
+    next(diyPage.value)
+  }
+}
+
 </script>
 
 <style lang="scss" scoped>

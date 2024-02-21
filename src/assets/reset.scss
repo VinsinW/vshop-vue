@@ -41,3 +41,18 @@ img {
     border-right: none;
     overflow: hidden;
 }
+.el-popper {
+    background: var(--el-popover-bg-color);
+    min-width: 150px;
+    border-radius: var(--el-popover-border-radius);
+    border: 1px solid var(--el-popover-border-color);
+    padding: var(--el-popover-padding) !important;
+    z-index: var(--el-index-popper);
+    color: var(--el-text-color-regular);
+    line-height: 1.4;
+    text-align: justify;
+    font-size: var(--el-popover-font-size) !important;
+    box-shadow: var(--el-box-shadow-light);
+    word-break: break-all;
+    box-sizing: border-box
+}

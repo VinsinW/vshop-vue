@@ -44,14 +44,6 @@ const props =  defineProps({
   align-items: center;
   justify-content: center;
 }
-.el-image__wrapper {
-  width: 100%;
-  height: 100%;
-}
-.sa-image .el-image {
-  width: 100%;
-  height: 100%;
-}
 .tabbar-item.is-center .top {
   width: 49px;
   height: 49px;

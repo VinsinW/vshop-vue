@@ -1,7 +1,7 @@
 <template>
   <div class="right-title">
-    <img src="/src/assets/images/decorate/tabbar.png">
-    <span>底部导航</span>
+    <img :src="'/src/assets/images/decorate/'+tempInfo.type+'.png'">
+    <span>{{ tempInfo.name }}</span>
   </div>
   <div class="right-tab sa-flex">
     <div class="tab-item" :class="{'is-active':tab===1}" @click="handleSwitchTab(1)">内容</div>
@@ -168,7 +168,8 @@
 import Draggable from 'vuedraggable'
 
 const props =  defineProps({
-  tabbarData:Object
+  tabbarData:Object,
+  tempInfo:Object
 })
 
 //切换tab  1.内容 2.样式 3.数据

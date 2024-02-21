@@ -1,9 +1,9 @@
 <template>
-  <el-scrollbar class="left-main">
+  <el-scrollbar class="left-main"  v-if="mode=='basic'">
     <el-collapse v-model="activeNames[mode]">
       <el-collapse-item v-for="(mod,index) in leftComponent(mode)" :name="mode+'-'+mod.type" :title="mod.name">
         <div class="sa-flex sa-flex-wrap">
-          <div v-for="(item,index) in mod.data" class="item" :class="{'is-active':leftData.activeBasic==item.type},{'is-active':leftData.activeTheme==item.type}"   @click="handleClick(mod.type,item.type)">
+          <div v-for="(item,index) in mod.data" class="item" :class="{'is-active':leftData.activeBasic==item.type},{'is-active':leftData.activeTheme==item.type}"   @click="handleClick({group:mod.type,type:item.type,name:item.name})">
             <img :src="'/src/assets/images/decorate/'+item.type+'.png'">
             <span>{{item.name}}</span>
           </div>
@@ -11,21 +11,57 @@
       </el-collapse-item>
     </el-collapse>
   </el-scrollbar>
+
+  <el-scrollbar class="left-main"  v-if="mode=='home'">
+    <el-collapse v-model="activeNames[mode]">
+      <el-collapse-item v-for="(mod,index) in leftComponent(mode)" :name="mode+'-'+mod.type" :title="mod.name">
+        <Draggable
+            :group="state.groupMenu"
+            :sort="false"
+            v-model="mod.data"
+            item-key="1"
+            handle=".item"
+            ghost-class="sortable-ghost"
+            chosen-class="sortable-chosen"
+            animation="300"
+            class="sa-flex sa-flex-wrap">
+          <template #item="{ element }">
+            <div class="item">
+              <img :src="'/src/assets/images/decorate/'+element.type+'.png'">
+              <span>{{element.name}}</span>
+            </div>
+          </template>
+        </Draggable>
+      </el-collapse-item>
+    </el-collapse>
+  </el-scrollbar>
 </template>
 
 <script lang="ts" setup>
+import Draggable from 'vuedraggable'
 import { mitt } from "/@/utils/mitt";
-import {service} from "/@/service";
+
 const props = defineProps({
   mode:{
     type:String,
     default:''
-  }
+  },
+  basicData:{
+    type:Object
+  },
 })
 
 const leftData = reactive({
   activeBasic: 'tabbar',
-  activeTheme: 'orange',
+  activeTheme: props.basicData.page.theme,
+})
+
+const state = reactive({
+  groupMenu:{
+    name:'Comp-item',
+    pull:'clone',
+    put:false
+  }
 })
 
 //左侧页面配置信息
@@ -142,20 +178,33 @@ function leftComponent(mode){
 
 /**
  * 组件event触发
- * @param group
- * @param comp
+ * @param template 组件模板
  */
-function handleClick(group,template){
-  if (group == 'basic') {
-    leftData.activeBasic = template
+function handleClick(template){
+  if (template.group == 'basic') {
+    leftData.activeBasic = template.type
     mitt.emit('event.active',template)
   }
-  if (group == 'theme') {
-    leftData.activeTheme = template
+  if (template.group == 'theme') {
+    leftData.activeTheme = template.type
+    props.basicData.page.theme = template.type
+    console.log(props.basicData)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
+.sortable-ghost{
+  width: 100%;
+  background: #0076f6;
+}
+.sortable-ghost::before{
+  content: '新添加组件元素';
+  line-height: 48px;
+  color: #fff;
+  padding: 20px;
+}
+.sortable-ghost span,.sortable-ghost img{
+  display: none;
+}
 </style>

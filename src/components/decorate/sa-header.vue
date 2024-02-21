@@ -1,42 +1,103 @@
 <template>
   <div class="sa-header sa-flex sa-row-between">
     <div class="left sa-flex">
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('basic')" :class="{'is-active': mode==='basic'}">
-        <el-icon><Menu /></el-icon>
-      </div>
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('home')" :class="{'is-active': mode==='home'}">
-        <el-icon><HomeFilled /></el-icon>
-      </div>
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger" @click="switchMode('user')" :class="{'is-active': mode==='user'}">
+      <el-tooltip
+          content="基础配置"
+          placement="bottom"
+          effect="light"
+      >
+        <div class="header-button sa-flex sa-row-center" @click="switchMode('basic')" :class="{'is-active': mode==='basic'}">
+          <el-icon><Menu /></el-icon>
+        </div>
+      </el-tooltip>
+      <el-tooltip
+          content="首页"
+          placement="bottom"
+          effect="light"
+      >
+        <div class="header-button sa-flex sa-row-center" @click="switchMode('home')" :class="{'is-active': mode==='home'}">
+          <el-icon><HomeFilled /></el-icon>
+        </div>
+      </el-tooltip>
+
+      <el-tooltip
+          content="个人设置"
+          placement="bottom"
+          effect="light"
+      >
+      <div class="header-button sa-flex sa-row-center" @click="switchMode('user')" :class="{'is-active': mode==='user'}">
         <el-icon><UserFilled /></el-icon>
       </div>
+      </el-tooltip>
     </div>
     <div class="center sa-flex">
-      <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      <el-tooltip
+          content="android"
+          placement="bottom"
+          effect="light"
+      >
+      <div class="header-icon sa-flex sa-row-center">
         <i class="iconfont iconandroid"></i>
       </div>
+      </el-tooltip>
+      <el-tooltip
+          content="ios"
+          placement="bottom"
+          effect="light"
+      >
       <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
         <i class="iconfont iconios"></i>
       </div>
-      <div class="el-divider el-divider--vertical" role="separator" style="--el-border-style: solid;"><!--v-if--></div>
-      <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      </el-tooltip>
+      <div class="el-divider el-divider--vertical" role="separator" style="--el-border-style: solid;"></div>
+      <el-tooltip
+          content="微信小程序"
+          placement="bottom"
+          effect="light"
+      >
+      <div class="header-icon sa-flex sa-row-center">
         <i class="iconfont iconWechatMiniProgram"></i>
       </div>
-      <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      </el-tooltip>
+      <el-tooltip
+          content="微信公众号"
+          placement="bottom"
+          effect="light"
+      >
+      <div class="header-icon sa-flex sa-row-center">
         <i class="iconfont iconWechatOfficialAccount"></i>
       </div>
-      <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      </el-tooltip>
+      <el-tooltip
+          content="H5"
+          placement="bottom"
+          effect="light"
+      >
+      <div class="header-icon sa-flex sa-row-center">
         <i class="iconfont iconH5"></i>
       </div>
-      <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      </el-tooltip>
+      <el-tooltip
+          content="APP"
+          placement="bottom"
+          effect="light"
+      >
+      <div class="header-icon sa-flex sa-row-center">
         <i class="iconfont iconApp"></i>
       </div>
-      <div class="el-divider el-divider--vertical" role="separator" style="--el-border-style: solid;"><!--v-if--></div>
+      </el-tooltip>
+      <div class="el-divider el-divider--vertical" role="separator" style="--el-border-style: solid;"></div>
     </div>
     <div class="right sa-flex">
-      <div class="header-button sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
+      <el-tooltip
+          content="保存预览"
+          placement="bottom"
+          effect="light"
+      >
+      <div class="header-button sa-flex sa-row-center">
         <i class="iconfont iconpreview" @click="handleSave()"></i>
       </div>
+      </el-tooltip>
     </div>
   </div>
 </template>
