@@ -38,7 +38,6 @@ const temp = ref({
 
 onMounted(()=>{
   mitt.on('event.active',(template)=>{
-    console.log(template)
     temp.value = template
   });
 })

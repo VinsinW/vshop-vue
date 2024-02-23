@@ -2,90 +2,39 @@
   <div class="sa-header sa-flex sa-row-between">
     <div class="left sa-flex">
       <el-tooltip
-          content="基础配置"
+          v-for="(item,index) in page.pageTypeList"
+          :content="item.label"
           placement="bottom"
           effect="light"
       >
-        <div class="header-button sa-flex sa-row-center" @click="switchMode('basic')" :class="{'is-active': mode==='basic'}">
-          <el-icon><Menu /></el-icon>
+        <div class="header-button sa-flex sa-row-center" @click="switchMode(item.type)" :class="{'is-active': mode===item.type}">
+          <i class="iconfont" :class="'icon'+item.type"></i>
         </div>
-      </el-tooltip>
-      <el-tooltip
-          content="首页"
-          placement="bottom"
-          effect="light"
-      >
-        <div class="header-button sa-flex sa-row-center" @click="switchMode('home')" :class="{'is-active': mode==='home'}">
-          <el-icon><HomeFilled /></el-icon>
-        </div>
-      </el-tooltip>
-
-      <el-tooltip
-          content="个人设置"
-          placement="bottom"
-          effect="light"
-      >
-      <div class="header-button sa-flex sa-row-center" @click="switchMode('user')" :class="{'is-active': mode==='user'}">
-        <el-icon><UserFilled /></el-icon>
-      </div>
       </el-tooltip>
     </div>
     <div class="center sa-flex">
       <el-tooltip
-          content="android"
+          v-for="(item,index) in page.systemList"
+          :content="item.label"
           placement="bottom"
           effect="light"
       >
       <div class="header-icon sa-flex sa-row-center">
-        <i class="iconfont iconandroid"></i>
-      </div>
-      </el-tooltip>
-      <el-tooltip
-          content="ios"
-          placement="bottom"
-          effect="light"
-      >
-      <div class="header-icon sa-flex sa-row-center el-tooltip__trigger el-tooltip__trigger">
-        <i class="iconfont iconios"></i>
+        <i class="iconfont" :class="'icon'+item.type"></i>
       </div>
       </el-tooltip>
       <div class="el-divider el-divider--vertical" role="separator" style="--el-border-style: solid;"></div>
       <el-tooltip
-          content="微信小程序"
+          v-for="(item,index) in page.platformList"
+          :content="item.label"
           placement="bottom"
           effect="light"
       >
       <div class="header-icon sa-flex sa-row-center">
-        <i class="iconfont iconWechatMiniProgram"></i>
+        <i class="iconfont" :class="'icon'+item.type"></i>
       </div>
       </el-tooltip>
-      <el-tooltip
-          content="微信公众号"
-          placement="bottom"
-          effect="light"
-      >
-      <div class="header-icon sa-flex sa-row-center">
-        <i class="iconfont iconWechatOfficialAccount"></i>
-      </div>
-      </el-tooltip>
-      <el-tooltip
-          content="H5"
-          placement="bottom"
-          effect="light"
-      >
-      <div class="header-icon sa-flex sa-row-center">
-        <i class="iconfont iconH5"></i>
-      </div>
-      </el-tooltip>
-      <el-tooltip
-          content="APP"
-          placement="bottom"
-          effect="light"
-      >
-      <div class="header-icon sa-flex sa-row-center">
-        <i class="iconfont iconApp"></i>
-      </div>
-      </el-tooltip>
+
       <div class="el-divider el-divider--vertical" role="separator" style="--el-border-style: solid;"></div>
     </div>
     <div class="right sa-flex">
@@ -116,8 +65,13 @@ const props = defineProps({
   basicData:{
     type:Object,
     default:''
+  },
+  page:{
+    type:Object,
+    default:''
   }
 })
+
 
 const emits = defineEmits(['evenSwitchMode'])
 const switchMode:string = (mode:string)=>{
@@ -173,6 +127,9 @@ function handleSave(){
       background: var(--el-color-primary);
       color: #ffffff;
       .el-icon{
+        color: var(--sa-background-assist);
+      }
+      .iconfont{
         color: var(--sa-background-assist);
       }
     }
