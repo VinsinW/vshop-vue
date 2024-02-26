@@ -2,13 +2,13 @@
   <div id="index" class="page-index  panel panel-default panel-intro">
     <el-container class="panel-block">
       <el-header>
-        <sa-header v-if="basicFlag&&basicData" :page="pageData" :mode="mode" :basicData="basicData" @evenSwitchMode="handleSwitchMode"></sa-header>
+        <sa-header v-if="basicFlag&&basicData" :mode="mode" :basicData="basicData" @evenSwitchMode="handleSwitchMode"></sa-header>
       </el-header>
       <el-main class="page-main sa-flex">
         <!--左侧设置栏目 Begin-->
         <div class="left" :class="isCollapse.left?'is-collapse':''">
-          <left-menu v-if="basicFlag&&basicData" :mode="mode" :basicData="basicData" :page="pageData" />
-          <left-menu v-if="mode=='home'&&diyPage" :mode="mode" :diyPage="diyPage" :page="pageData" />
+          <left-menu v-if="basicFlag&&basicData" :mode="mode" :basicData="basicData" />
+          <left-menu v-if="mode=='home'&&diyPage" :mode="mode" :diyPage="diyPage" />
           <div class="left-icon sa-flex sa-row-center" @click="handleCollapse('left')">
             <el-icon><ArrowLeft /></el-icon>
           </div>
@@ -19,7 +19,7 @@
         <div  class="center sa-flex sa-row-center" @click.self="handlePage">
           <div id="html2canvasWrap" class="center-main basic is-android">
             <diy-page v-if="mode=='basic'&&basicFlag&&basicData" :mode="mode" :basicData="basicData" />
-            <diy-page v-if="mode=='home'&&diyPage" :mode="mode" :diyPage="diyPage" :page="pageData" />
+            <diy-page v-if="mode=='home'&&diyPage" :mode="mode" :diyPage="diyPage" />
           </div>
         </div>
         <!--手机模拟DIY End-->
@@ -48,10 +48,6 @@ import { page } from "/@/modules/page"
 import {mitt} from "/@/utils/mitt";
 import {isEmpty} from "lodash-es";
 import {service} from "/@/service";
-
-//页面数据模型
-const pageData = page
-
 
 /**
  * 处理左右栏目收缩
@@ -88,6 +84,12 @@ function handlePage(){
       type: 'page'
     }
     mitt.emit('event.active',template)
+    const currentComp = {
+      index: -1, // -2=未选中|-1=选中页面
+      type: null,
+      right: {}
+    }
+    mitt.emit('event.currentComp',currentComp);
     getHomePageService()
   }
 }

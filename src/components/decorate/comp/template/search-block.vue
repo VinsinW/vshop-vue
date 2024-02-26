@@ -1,14 +1,20 @@
 <template>
-  <div class="search-block sa-flex sa-row-between" style="border-radius: 27px;">
+  <div class="search-block sa-flex sa-row-between" :style="'border-radius:'+compData.data?.borderRadius+'px'">
     <div class="sa-flex">
-      <i class="el-icon"></i>
-      <div class="placeholder sa-m-l-8">请输入关键词</div>
+      <el-icon><Search /></el-icon>
+      <div class="placeholder sa-m-l-8">{{compData.data?.placeholder}}</div>
     </div>
     <div class="keywords sa-flex"></div>
   </div>
 </template>
 
 <script lang="ts" setup>
+const props =  defineProps({
+  compData: {
+    type:Object,
+    default:''
+  }
+})
 
 </script>
 

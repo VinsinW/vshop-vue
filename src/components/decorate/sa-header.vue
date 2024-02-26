@@ -56,6 +56,7 @@ import VsSvg from "/@/components/icon/svg.vue";
 import {service} from "/@/service";
 import {mitt} from "/@/utils/mitt";
 import {useDiyPageStore} from "/@/store/decorate/diypage";
+import { page } from "/@/modules/page"
 
 const props = defineProps({
   mode:{
@@ -66,10 +67,6 @@ const props = defineProps({
     type:Object,
     default:''
   },
-  page:{
-    type:Object,
-    default:''
-  }
 })
 
 

@@ -19,18 +19,25 @@
       chosen-class="sortable-chosen"
       animation="300"
       class="comp-wrap"
+      @end="onEnd"
       :style="mode=='basic'?'':'background-color:'+diyPage.page.style.background.color">
     <template #item="{element,index}">
-      <div class="comp-item" :class="[element.type,{'is-active':currentComp.index==index}]" @click="currentComp.index=index">
-        <div class="comp-content" style="margin: 0px 0px 8px; border-radius: 0px; padding: 8px; background: rgb(255, 255, 255);">
-        <component :is="compMap[element.type]"></component>
+      <div class="comp-item" :class="[element.type,{'is-active':currentComp.index==index}]" @click="onSelectComp(index,element.type)">
+        <div class="comp-content" style="border-radius: 0px; padding: 8px;"
+             :style="{
+          background:diyPage.page.data[index].style.background.type==='color'?diyPage.page.data[index].style.background.bgColor:'url('+diyPage.page.data[index].style.background.bgImage+') 0% 0% / 100% 58px no-repeat',
+          margin:diyPage.page.data[index].style.marginTop+'px '+diyPage.page.data[index].style.marginRight+'px '+diyPage.page.data[index].style.marginBottom+'px '+diyPage.page.data[index].style.marginLeft+'px',
+          borderRadius:diyPage.page.data[index].style.borderRadiusTop+'px '+diyPage.page.data[index].style.borderRadiusTop+'px '+diyPage.page.data[index].style.borderRadiusBottom+'px '+diyPage.page.data[index].style.borderRadiusBottom+'px',
+          padding:diyPage.page.data[index].style.padding+'px'
+        }" >
+          <component :is="compMap[element.type]" :compData="diyPage.page.data[index]"></component>
         </div>
         <div class="comp-label">{{page.compNameObj[element.type].label}}</div>
         <div class="comp-tools">
-          <el-icon><ArrowUp /></el-icon>
-          <el-icon><ArrowDown /></el-icon>
-          <el-icon><CopyDocument /></el-icon>
-          <el-icon><Delete /></el-icon>
+          <el-icon v-if="index>0" @click.stop="onUpComp(index,element.type)"><ArrowUp /></el-icon>
+          <el-icon v-if="index<diyPage.page.data.length-1" @click.stop="onDownComp(index,element.type)"><ArrowDown /></el-icon>
+          <el-icon @click.stop="onCopyComp(index,element.type)"><CopyDocument /></el-icon>
+          <el-icon @click.stop="onDelete(index,element.type)"><Delete /></el-icon>
         </div>
       </div>
     </template>
@@ -44,8 +51,9 @@ import Tabbar from "/@/components/decorate/template/tabbar.vue"
 import FloatMenu from "/@/components/decorate/template/floatMenu.vue"
 import PopupImage from "/@/components/decorate/template/popupImage.vue"
 import CenterHeader from "/@/components/decorate/template/centerHeader.vue"
-import SearchBlock from "/@/components/decorate/comp/search-block.vue"
+import SearchBlock from "/@/components/decorate/comp/template/search-block.vue"
 import Draggable from 'vuedraggable'
+import { page } from "/@/modules/page"
 
 const compMap:any = {
   searchBlock:SearchBlock
@@ -60,9 +68,6 @@ const props = defineProps({
     type:Object
   },
   diyPage:{
-    type:Object
-  },
-  page:{
     type:Object
   }
 })
@@ -91,11 +96,14 @@ const currentComp = reactive({
   right: {}
 })
 
-const onSelectComp = (index,type)=>{
+
+const onSelectComp = (index,type=null,right={})=>{
   currentComp.index = index
   currentComp.type = type
   currentComp.right = props.diyPage.page.data[index]
+  mitt.emit('event.currentComp',currentComp)
 }
+
 
 onMounted(()=>{
   mitt.on('event.active',(template)=>{
@@ -112,6 +120,53 @@ onBeforeUnmount(()=>{
   mitt.off('event.active')
   mitt.off('event.currentComp')
 })
+
+/**
+ * 组件上移
+ * @param index 组件ID
+ */
+const onUpComp = (index,type)=>{
+  props.diyPage.page.data.splice(
+      index-1,
+      2,
+      props.diyPage.page.data[index],
+      props.diyPage.page.data[index-1],
+  )
+  onSelectComp(index-1,type)
+}
+
+/**
+ * 组件下移
+ * @param index 组件ID
+ */
+const onDownComp = (index,type)=>{
+  props.diyPage.page.data.splice(
+      index,
+      2,
+      props.diyPage.page.data[index+1],
+      props.diyPage.page.data[index],
+  )
+  onSelectComp(index+1,type)
+}
+
+/**
+ * 组件拖拽排序
+ * @param e
+ */
+const onEnd = (e)=>{
+  const type = e.item.classList[1]
+  onSelectComp(e.newIndex,type)
+}
+
+const onCopyComp = (index,type)=>{
+  props.diyPage.page.data.splice(index,0,JSON.parse(JSON.stringify(props.diyPage.page.data[index])))
+  onSelectComp(index+1,type)
+}
+
+const onDelete=(index,type)=>{
+  props.diyPage.page.data.splice(index,1)
+  onSelectComp(-2)
+}
 
 </script>
 

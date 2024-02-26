@@ -44,7 +44,8 @@
 
 <script lang="ts" setup>
 import Draggable from 'vuedraggable'
-import { mitt } from "/@/utils/mitt";
+import { mitt } from "/@/utils/mitt"
+import { page } from "/@/modules/page"
 
 const props = defineProps({
   mode:{
@@ -56,11 +57,9 @@ const props = defineProps({
   },
   diyPage:{
     type:Object
-  },
-  page:{
-    type:Object
   }
 })
+
 
 /**
  * 左侧组件默认数据
@@ -98,12 +97,17 @@ function handleClick(template){
 }
 
 /**
- * 拖拽组件触发
+ * 拖拽组件开始触发
+ * @param e 拖拽项
  */
 const onStart = (e)=>{
   leftData.saveHtml = e.clone.innerHTML;
 }
 
+/**
+ * 拖拽组件移动时触发
+ * @param e 拖拽项
+ */
 const onCompMove = (e)=>{
   if (e.to.className.indexOf('comp-wrap') != -1) {
     e.dragged.innerHTML = `<div style="padding:0 20px;width:100%;height:50px;line-height:50px;background:var(--el-color-primary);color:#fff">新增组件元素</div>`;
@@ -112,18 +116,25 @@ const onCompMove = (e)=>{
   }
 }
 
+/**
+ * 拖拽组件结束触发
+ * @param e 拖拽项
+ */
 const onEnd = (e)=>{
   if (e.to.className.indexOf('comp-wrap') != -1) {
     e.item.innerHTML = leftData.saveHtml;
     const type = e.item.classList[1]
-    console.log(e);
-    props.diyPage.page.data.splice(e.newIndex,0, props.page.cloneComponent(type,leftData.activeTheme))
+    props.diyPage.page.data.splice(e.newIndex,0, page.cloneComponent(type,leftData.activeTheme))
     props.diyPage.page.data.splice(e.newIndex + 1, 1);
     onSelectComp(e.newIndex,type) //切换当前选择项
-    console.log(props.diyPage)
   }
 }
 
+/**
+ * 组件选择项
+ * @param index 组件序号
+ * @param type 组件类型
+ */
 const onSelectComp = (index,type)=>{
   const currentComp = {
     index: index, // -2=未选中|-1=选中页面
