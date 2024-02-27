@@ -22,16 +22,8 @@
       @end="onEnd"
       :style="mode=='basic'?'':'background-color:'+diyPage.page.style.background.color">
     <template #item="{element,index}">
-      <div class="comp-item" :class="[element.type,{'is-active':currentComp.index==index}]" @click="onSelectComp(index,element.type)">
-        <div class="comp-content" style="border-radius: 0px; padding: 8px;"
-             :style="{
-          background:diyPage.page.data[index].style.background.type==='color'?diyPage.page.data[index].style.background.bgColor:'url('+diyPage.page.data[index].style.background.bgImage+') 0% 0% / 100% 58px no-repeat',
-          margin:diyPage.page.data[index].style.marginTop+'px '+diyPage.page.data[index].style.marginRight+'px '+diyPage.page.data[index].style.marginBottom+'px '+diyPage.page.data[index].style.marginLeft+'px',
-          borderRadius:diyPage.page.data[index].style.borderRadiusTop+'px '+diyPage.page.data[index].style.borderRadiusTop+'px '+diyPage.page.data[index].style.borderRadiusBottom+'px '+diyPage.page.data[index].style.borderRadiusBottom+'px',
-          padding:diyPage.page.data[index].style.padding+'px'
-        }" >
-          <component :is="compMap[element.type]" :compData="diyPage.page.data[index]"></component>
-        </div>
+      <div v-if="diyPage.page.data[index]" class="comp-item" :class="[element.type,{'is-active':currentComp.index==index}]" @click="onSelectComp(index,element.type)">
+        <component :is="compMap[element.type]" :compData="diyPage.page.data[index]"></component>
         <div class="comp-label">{{page.compNameObj[element.type].label}}</div>
         <div class="comp-tools">
           <el-icon v-if="index>0" @click.stop="onUpComp(index,element.type)"><ArrowUp /></el-icon>
@@ -47,17 +39,13 @@
 
 <script lang="ts" setup>
 import {mitt} from "/@/utils/mitt"
-import Tabbar from "/@/components/decorate/template/tabbar.vue"
-import FloatMenu from "/@/components/decorate/template/floatMenu.vue"
-import PopupImage from "/@/components/decorate/template/popupImage.vue"
-import CenterHeader from "/@/components/decorate/template/centerHeader.vue"
-import SearchBlock from "/@/components/decorate/comp/template/search-block.vue"
 import Draggable from 'vuedraggable'
 import { page } from "/@/modules/page"
-
-const compMap:any = {
-  searchBlock:SearchBlock
-}
+import Tabbar from "/@/components/decorate/template/tabbar"
+import FloatMenu from "/@/components/decorate/template/floatMenu"
+import PopupImage from "/@/components/decorate/template/popupImage"
+import CenterHeader from "/@/components/decorate/template/centerHeader"
+import compMap from "/@/components/decorate/comp/template"
 
 const props = defineProps({
   mode:{
@@ -171,78 +159,4 @@ const onDelete=(index,type)=>{
 </script>
 
 <style lang="scss" scoped>
-.comp-item {
-  position: relative;
-  z-index: 10;
-  cursor: pointer;
-  &::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    cursor: move;
-    display: none;
-  }
-  &.is-active{
-    &::before {
-      display: flex;
-      border: 1px solid var(--el-color-primary);
-    }
-    .comp-label {
-      color: #fff;
-      background: var(--el-color-primary);
-    }
-    .comp-tools {
-      display: flex;
-    }
-  }
-  .comp-content {
-    background-size: 100% !important;
-    background-repeat: no-repeat !important;
-    overflow: hidden;
-    min-height: 30px;
-  }
-  .comp-label {
-    position: absolute;
-    top: 0;
-    left: -88px;
-    z-index: 1;
-    width: 80px;
-    height: 32px;
-    background: var(--sa-background-assist);
-    box-shadow: 0px 0px 4px rgb(0 0 0 / 8%), 0px 2px 6px rgb(0 0 0 / 6%), 0px 4px 8px 2px rgb(0 0 0 / 4%);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
-    font-size: 14px;
-    color: var(--sa-font);
-  }
-  .comp-tools {
-    position: absolute;
-    top: 0;
-    right: -40px;
-    z-index: 1;
-    width: 32px;
-    background: var(--sa-background-assist);
-    box-shadow: 0px 0px 4px rgb(0 0 0 / 8%), 0px 2px 6px rgb(0 0 0 / 6%), 0px 4px 8px 2px rgb(0 0 0 / 4%);
-    border-radius: 2px;
-    padding-top: 8px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .el-icon {
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-  }
-}
 </style>

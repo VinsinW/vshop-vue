@@ -197,7 +197,7 @@
               "height": 2,
               "top": 0,
               "left": 0,
-              "src": "/storage/decorate/20221115/aead1d736d0cddba13ffbbb5e8603629.png",
+              "src": "/src/assets/upload/aead1d736d0cddba13ffbbb5e8603629.png",
               "url": "/pages/index/category?id=21"
             },
             {
@@ -205,7 +205,7 @@
               "height": 1,
               "top": 0,
               "left": 2,
-              "src": "/storage/decorate/20221115/968a4300d7b2e14794cdd11e140d4c68.png",
+              "src": "/src/assets/upload/629ac892b94afeb3bd547c9f6d53e432.png",
               "url": "/pages/index/category?id=21"
             },
             {
@@ -213,7 +213,7 @@
               "height": 1,
               "top": 1,
               "left": 2,
-              "src": "/storage/decorate/20221115/629ac892b94afeb3bd547c9f6d53e432.png",
+              "src": "/src/assets/upload/968a4300d7b2e14794cdd11e140d4c68.png",
               "url": "/pages/index/category?id=21"
             }
           ]

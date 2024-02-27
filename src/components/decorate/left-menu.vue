@@ -127,6 +127,7 @@ const onEnd = (e)=>{
     props.diyPage.page.data.splice(e.newIndex,0, page.cloneComponent(type,leftData.activeTheme))
     props.diyPage.page.data.splice(e.newIndex + 1, 1);
     onSelectComp(e.newIndex,type) //切换当前选择项
+    console.log(props.diyPage)
   }
 }
 

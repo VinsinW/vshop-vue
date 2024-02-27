@@ -11,19 +11,38 @@
 
   <!--内容属性-->
   <div v-if="tab===1" class="card">
-    <div class="title">默认文字</div>
+    <div class="title">
+      魔方样式
+      <div class="tip">每格尺寸：187*187</div>
+    </div>
     <div class="wrap">
-      <el-form-item label="提示内容">
-        <el-input v-model="compData.data.placeholder" placeholder="请输入提示内容"></el-input>
-      </el-form-item>
-      <el-form-item label="圆角" >
-        <div class="d-slider sa-flex">
-          <el-slider v-model="compData.data.borderRadius" />
-          <el-input v-model="compData.data.borderRadius" type="number">
-            <template v-slot:suffix>PX</template>
-          </el-input>
+      <div>
+        <div class="d-cube">
+          <table>
+            <tbody>
+            <tr v-for="row in 4">
+              <td v-for="col in 4" class="image-cube-item"
+                  :class="{'is-active':(state.isFlag&&state.position.start.row==row && state.position.start.col==col)||(state.isFlag&&row>=state.sort.arrRow[0]&&row<=state.sort.arrRow[1]&&col>=state.sort.arrCol[0]&&col<=state.sort.arrCol[1])}"
+                  style="width: 66px; height: 66px;"
+                  @click="onSelectImageCube(row,col)"
+                  @mousemove="onMoveImageCube(row,col)">
+                <el-icon><Plus /></el-icon>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div v-for="(item,index) in compData.data.list" class="position-item sa-flex sa-row-center" :class="{'is-active':state.activeImage==index}"
+          :style="{
+            width:66*item.width+'px',
+            height:66*item.height+'px',
+            top:66*item.top+'px',
+            left:66*item.left+'px'
+          }">
+            {{item.width+'*'+item.height}}
+            <el-icon class="circle-close-filled"><CircleCloseFilled /></el-icon>
+          </div>
         </div>
-      </el-form-item>
+      </div>
     </div>
   </div>
 
@@ -143,6 +162,41 @@ const props =  defineProps({
   compName:String
 })
 
+
+const state = reactive({
+  position:{
+    start:{row:0,col:0},
+    end:{row:0,col:0}
+  },
+  sort:{
+    arrRow:[],
+    arrCol:[]
+  },
+  isFlag:false,
+  activeImage:0
+})
+
+
+function onSelectImageCube(row,col){
+  if(!state.isFlag){
+    state.position.start.row=row
+    state.position.start.col=col
+    state.isFlag = true
+  }else{
+    state.position.end.row=row
+    state.position.end.col=col
+    state.isFlag = false
+  }
+}
+
+function onMoveImageCube(row,col){
+  if(state.isFlag){
+    state.sort.arrRow = [state.position.start.row,row].sort()
+    state.sort.arrCol = [state.position.start.col,col].sort()
+  }
+}
+
+
 //切换tab  1.内容 2.样式 3.数据
 const tab = ref(1)
 function handleSwitchTab(type){
@@ -154,5 +208,47 @@ function handleSwitchTab(type){
 </script>
 
 <style lang="scss" scoped>
-
+.d-cube {
+  position: relative;
+  margin: 0 auto 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  .image-cube-item {
+    border: 1px solid var(--sa-border);
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.is-active {
+      background-color: var(--sa-background-hex-hover);
+    }
+    .el-icon {
+      color: var(--sa-place);
+    }
+  }
+  .position-item {
+    position: absolute;
+    background: var(--sa-background-hex-active);
+    border: 1px solid var(--el-color-primary);
+    cursor: pointer;
+    &.is-active .circle-close-filled {
+      display: block;
+    }
+    .circle-close-filled {
+      display: none;
+      font-size: 12px;
+      color: var(--el-color-primary);
+      background: #fff;
+      border-radius: 6px;
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      z-index: 10;
+    }
+  }
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 </style>

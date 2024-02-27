@@ -5,7 +5,8 @@
         <float-menu v-if="temp.type=='floatMenu' && mode=='basic' && basicData" :floatMenuData="basicData.page.floatMenu" :tempInfo="temp"/>
         <popup-image v-if="temp.type=='popupImage' && mode=='basic' && basicData" :popupImageData="basicData.page.popupImage" :tempInfo="temp"/>
         <setting v-if="currentComp.index==-1 && diyPage" :setting="diyPage.page.style" :tempInfo="temp" />
-        <search-block v-if="currentComp.type=='searchBlock' && diyPage" :searchBlock="diyPage.page.data[currentComp.index]" :compName="page.compNameObj[currentComp.type].label"/>
+        <search-block v-if="currentComp.type=='searchBlock' && diyPage.page.data[currentComp.index]" :compData="diyPage.page.data[currentComp.index]" :compName="page.compNameObj[currentComp.type].label"/>
+        <image-cube v-if="currentComp.type=='imageCube' && diyPage.page.data[currentComp.index]" :compData="diyPage.page.data[currentComp.index]" :compName="page.compNameObj[currentComp.type].label"/>
       </el-form>
     </el-scrollbar>
 </template>
@@ -16,6 +17,7 @@ import FloatMenu from '/@/components/decorate/attr/floatMenu'
 import PopupImage from '/@/components/decorate/attr/popupImage'
 import Setting from '/@/components/decorate/attr/setting'
 import SearchBlock from '/@/components/decorate/comp/attr/search-block'
+import ImageCube from '/@/components/decorate/comp/attr/image-cube'
 import {mitt} from "/@/utils/mitt";
 import { page } from "/@/modules/page"
 
