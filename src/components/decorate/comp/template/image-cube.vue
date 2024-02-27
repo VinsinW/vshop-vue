@@ -10,7 +10,7 @@
     <div class="image-cube-wrap" style="margin: -4px; height: 160px; position: relative;">
       <div v-for="(item,index) in compData.data.list" class="image-cube-item"
            :style="{
-              width: 80*item.width-compData.+'px',
+              width: 80*item.width+'px',
               height: 80*item.height+'px',
               top: 80*item.top+'px',
               left: 80*item.left+'px',
