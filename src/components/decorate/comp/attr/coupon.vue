@@ -11,20 +11,9 @@
 
   <!--内容属性-->
   <div v-if="tab===1&&compData.data" class="card">
-    <div class="title">默认文字</div>
-    <div class="wrap">
-      <el-form-item label="提示内容">
-        <el-input v-model="compData.data.placeholder" placeholder="请输入提示内容"></el-input>
-      </el-form-item>
-      <el-form-item label="圆角" >
-        <div class="d-slider sa-flex">
-          <el-slider v-model="compData.data.borderRadius" />
-          <el-input v-model.number="compData.data.borderRadius" :min="0" :max="100" type="number">
-            <template v-slot:suffix>PX</template>
-          </el-input>
-        </div>
-      </el-form-item>
-    </div>
+    <!--
+        -------------组件属性内容----------------
+    -->
   </div>
 
   <!--组件样式-->
@@ -42,7 +31,6 @@
 import {mitt} from "/@/utils/mitt"
 import Style from "./style"
 import Data from "./data"
-
 const props =  defineProps({
   compData:{
     type:Object,
@@ -59,7 +47,6 @@ const tab = ref(1)
 function handleSwitchTab(type){
   tab.value = type
 }
-
 
 
 </script>

@@ -6,17 +6,17 @@
           borderRadius:compData.style?.borderRadiusTop+'px '+compData.style?.borderRadiusTop+'px '+compData.style?.borderRadiusBottom+'px '+compData.style?.borderRadiusBottom+'px',
           padding:compData.style?.padding+'px'
         }" >
-  <div class="image-cube">
-    <div class="image-cube-wrap" style="margin: -4px; height: 160px; position: relative;">
+  <div class="image-cube" v-if="compData.data">
+    <div class="image-cube-wrap" style="position: relative;" :style="{height:maxHeight*scale-compData.style?.marginRight/maxHeight-compData.style?.marginLeft/maxHeight-compData.style?.padding/maxHeight*2+compData.data.space/2+'px',margin:-compData.data.space/2+'px'}">
       <div v-for="(item,index) in compData.data.list" class="image-cube-item"
            :style="{
-              width: 80*item.width+'px',
-              height: 80*item.height+'px',
-              top: 80*item.top+'px',
-              left: 80*item.left+'px',
+              width:scale*item.width-(compData.style?.marginRight+compData.style?.marginLeft+compData.style?.padding*2-compData.data.space)/4*item.width+'px',
+              height:scale*item.height-(compData.style?.marginRight+compData.style?.marginLeft+compData.style?.padding*2-compData.data.space)/4*item.height+'px',
+              top:scale*item.top-(compData.style?.marginRight+compData.style?.marginLeft+compData.style?.padding*2-compData.data.space)/4*item.top+'px',
+              left:scale*item.left-compData.style?.marginRight/4*item.width<=0?0+'px':scale*item.left-(compData.style?.marginRight+compData.style?.marginLeft+compData.style?.padding*2-compData.data.space)/4*item.width+'px',
               padding:compData.data.space/2+'px'
             }">
-        <div class="sa-image" style="width: 100%; height: 100%; border-radius: 8px;">
+        <div class="sa-image" style="width: 100%; height: 100%; overflow:hidden;" :style="{borderRadius:compData.data.borderRadiusTop+'px '+compData.data.borderRadiusTop+'px '+compData.data.borderRadiusBottom+'px '+compData.data.borderRadiusBottom+'px'}">
           <el-image :src="item.src" fit="cover">
             <template #error>
               <div class="el-image__wrapper">
@@ -32,12 +32,29 @@
 </template>
 
 <script lang="ts" setup>
+import {forEach} from "lodash-es";
+
+
 const props =  defineProps({
   compData: {
     type:Object,
     default:''
+  },
+  scale:{
+    type:Number,
+    default:80
   }
 })
+
+//计算最大行高
+const maxHeight = computed(()=>{
+  let size = 0;
+  props.compData.data.list.forEach((item)=>{
+    size = item.height+item.top>size?item.height+item.top:size
+  })
+  return size
+})
+
 
 </script>
 
