@@ -10,7 +10,7 @@
 
   <!--home 自定义页面设置-->
   <Draggable
-      v-if="mode=='home'"
+      v-if="mode=='home'&&diyPage.page.data"
       :group="state.groupComp"
       v-model="diyPage.page.data"
       item-key=""
@@ -22,7 +22,7 @@
       @end="onEnd"
       :style="mode=='basic'?'':'background-color:'+diyPage.page.style.background.color">
     <template #item="{element,index}">
-      <div v-if="diyPage.page.data[index]" class="comp-item" :class="[element.type,{'is-active':currentComp.index==index}]" @click="onSelectComp(index,element.type)">
+      <div v-if="element&&diyPage.page.data[index].type===element.type" class="comp-item" :class="[element.type,{'is-active':currentComp.index==index}]" @click="onSelectComp(index,element.type)">
         <component :is="compMap[element.type]" :compData="diyPage.page.data[index]"></component>
         <div class="comp-label">{{page.compNameObj[element.type].label}}</div>
         <div class="comp-tools">
@@ -142,7 +142,7 @@ const onDownComp = (index,type)=>{
  * @param e
  */
 const onEnd = (e)=>{
-  const type = e.item.classList[1]
+  const type = e.clone.classList[1]
   onSelectComp(e.newIndex,type)
 }
 

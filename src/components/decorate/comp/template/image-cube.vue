@@ -6,7 +6,7 @@
           borderRadius:compData.style?.borderRadiusTop+'px '+compData.style?.borderRadiusTop+'px '+compData.style?.borderRadiusBottom+'px '+compData.style?.borderRadiusBottom+'px',
           padding:compData.style?.padding+'px'
         }" >
-  <div class="image-cube" v-if="compData.data">
+  <div class="image-cube" v-if="compData.data?.list.length>0">
     <div class="image-cube-wrap" style="position: relative;" :style="{height:maxHeight*scale-compData.style?.marginRight/maxHeight-compData.style?.marginLeft/maxHeight-compData.style?.padding/maxHeight*2+compData.data.space/2+'px',margin:-compData.data.space/2+'px'}">
       <div v-for="(item,index) in compData.data.list" class="image-cube-item"
            :style="{
@@ -45,7 +45,6 @@ const props =  defineProps({
     default:80
   }
 })
-
 //计算最大行高
 const maxHeight = computed(()=>{
   let size = 0;

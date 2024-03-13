@@ -5,7 +5,7 @@
         <float-menu v-if="temp.type=='floatMenu' && mode=='basic' && basicData" :floatMenuData="basicData.page.floatMenu" :tempInfo="temp"/>
         <popup-image v-if="temp.type=='popupImage' && mode=='basic' && basicData" :popupImageData="basicData.page.popupImage" :tempInfo="temp"/>
         <setting v-if="currentComp.index==-1 && diyPage" :setting="diyPage.page.style" :tempInfo="temp" />
-        <div v-if="diyPage&&currentComp.type">
+        <div v-if="diyPage&&currentComp.type&&currentComp.type==diyPage.page.data[currentComp.index].type">
         <component :is="compMap[currentComp.type]" :compData="diyPage.page.data[currentComp.index]" :compName="page.compNameObj[currentComp.type].label"></component>
         </div>
       </el-form>

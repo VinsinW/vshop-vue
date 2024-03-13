@@ -10,13 +10,12 @@
   </div>
 
   <!--内容属性-->
-  <div v-if="tab===1&&compData.data" class="card">
+  <div v-if="tab===1" class="card">
     <div class="title">
       魔方样式
       <div class="tip">每格尺寸：187*187</div>
     </div>
     <div class="wrap">
-      <div>
         <div class="d-cube">
           <table>
             <tbody>
@@ -31,17 +30,20 @@
             </tr>
             </tbody>
           </table>
-          <div v-for="(item,index) in compData.data.list" class="position-item sa-flex sa-row-center" :class="{'is-active':state.activeImage==index}"
-          :style="{
-            width:state.scale*item.width+'px',
-            height:state.scale*item.height+'px',
-            top:state.scale*item.top+'px',
-            left:state.scale*item.left+'px'
-          }" @click.self="handleActive(index)">
-            {{item.width+'*'+item.height}}
-            <el-icon class="circle-close-filled" @click.stop="handleDelItem(index)"><CircleCloseFilled /></el-icon>
-          </div>
+          <template  v-if="compData.data?.list">
+            <div v-for="(item,index) in compData.data.list" class="position-item sa-flex sa-row-center" :class="{'is-active':state.activeImage==index}"
+            :style="{
+              width:state.scale*item.width+'px',
+              height:state.scale*item.height+'px',
+              top:state.scale*item.top+'px',
+              left:state.scale*item.left+'px'
+            }" @click.self="handleActive(index)">
+              {{item.width+'*'+item.height}}
+              <el-icon class="circle-close-filled" @click.stop="handleDelItem(index)"><CircleCloseFilled /></el-icon>
+            </div>
+          </template>
         </div>
+      <template v-if="compData.data?.list">
         <el-form-item v-if="compData.data.list[state.activeImage]" label="上传图片">
           <div class="sa-flex">
             <div class="sa-uploader">
@@ -70,7 +72,7 @@
         <el-form-item label="上圆角" >
           <div class="d-slider sa-flex">
             <el-slider v-model="compData.data.borderRadiusTop" />
-            <el-input v-model.number="compData.data.borderRadiusTop" :min="0" :max="100"   type="number">
+            <el-input v-model.number="compData.data.borderRadiusTop" :min="0" :max="100" type="number">
               <template v-slot:suffix>PX</template>
             </el-input>
           </div>
@@ -91,8 +93,8 @@
             </el-input>
           </div>
         </el-form-item>
+      </template>
       </div>
-    </div>
   </div>
 
   <!--组件样式-->
