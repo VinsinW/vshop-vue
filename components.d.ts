@@ -9,9 +9,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     Basic: typeof import('./src/components/decorate/basic/index.vue')['default']
     Decorate: typeof import('./src/components/decorate/index.vue')['default']
+    DecorateAttrData: typeof import('./src/components/decorate/attr/data.vue')['default']
     DecorateAttrFloatMenu: typeof import('./src/components/decorate/attr/floatMenu.vue')['default']
     DecorateAttrPopupImage: typeof import('./src/components/decorate/attr/popupImage.vue')['default']
     DecorateAttrSetting: typeof import('./src/components/decorate/attr/setting.vue')['default']
+    DecorateAttrStyle: typeof import('./src/components/decorate/attr/style.vue')['default']
     DecorateAttrTabbar: typeof import('./src/components/decorate/attr/tabbar.vue')['default']
     DecorateBasic: typeof import('./src/components/decorate/basic/index.vue')['default']
     DecorateBasicDiyPage: typeof import('./src/components/decorate/basic/diy-page.vue')['default']

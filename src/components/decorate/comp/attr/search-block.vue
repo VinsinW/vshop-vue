@@ -40,8 +40,8 @@
 
 <script lang="ts" setup>
 import {mitt} from "/@/utils/mitt"
-import Style from "./style"
-import Data from "./data"
+import Style from "../../attr/style.vue"
+import Data from "../../attr/data.vue"
 
 const props =  defineProps({
   compData:{
