@@ -65,17 +65,13 @@
   </div>
   <!--数据对象-->
   <el-scrollbar v-if="tab===3" class="cssCard">
-    <div>{</div>
-    <div v-for="(value,key) in popupImageData" class="pl-2 sa-flex sa-col-top">
-      <div class="cssKey mr-1">{{ key }}: </div>
-      <div class="cssValue">{{ value }},</div>
-    </div>
-    <div>}</div>
+    <Data :compData="compData"></Data>
   </el-scrollbar>
 </template>
 
 <script lang="ts" setup>
 import Draggable from 'vuedraggable'
+import Data from "./data.vue"
 
 const props =  defineProps({
   popupImageData:Object,
