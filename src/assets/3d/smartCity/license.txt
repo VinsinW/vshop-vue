@@ -1,0 +1,11 @@
+Model Information:
+* title:	City of London – 3D Buildings & Landmarks
+* source:	https://sketchfab.com/3d-models/city-of-london-3d-buildings-landmarks-c0f9ba8de6784152a96c333b68100a9a
+* author:	Nate Loper   🗺️ ⛏🏺 (https://sketchfab.com/arizonaguide)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "City of London – 3D Buildings & Landmarks" (https://sketchfab.com/3d-models/city-of-london-3d-buildings-landmarks-c0f9ba8de6784152a96c333b68100a9a) by Nate Loper   🗺️ ⛏🏺 (https://sketchfab.com/arizonaguide) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

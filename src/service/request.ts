@@ -24,6 +24,7 @@ request.interceptors.request.use(
     (req:any)=>{
         if (req.url) {
             // 请求进度条
+            console.log('加载进度');
             NProgress.start();
 
             //请求记录

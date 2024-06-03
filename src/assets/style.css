@@ -63,6 +63,28 @@
 .mr-1 {
     margin-right: 5px !important;
 }
+.mb-1 {
+    margin-bottom: 5px !important;
+}
 .pl-2 {
     padding-left: 10px !important;
+}
+.pd0{
+    padding: 0 !important;
+}
+.p24{
+    padding: 0 24px;
+}
+
+.border-blue{
+    border-right-color: #74bdf4 !important;
+}
+.border-blue-light{
+    border-right-color: #72e3fb !important;
+}
+.border-red{
+    border-right-color: #d89192 !important;
+}
+.border-black{
+    border-right-color: #bebebe !important;
 }

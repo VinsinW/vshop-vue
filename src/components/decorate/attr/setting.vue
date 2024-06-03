@@ -22,7 +22,7 @@
           <div class="sa-uploader">
             <div class="sa-flex sa-flex-wrap">
               <div class="sa-uploader-item">
-                <el-image :src="setting.background.src" :preview-src-list="[setting.background.src]" fit="contain">
+                <el-image :src="setting.background.src" :preview-src-list="[setting.background.src]" fit="contain" @click="handleUpload">
                   <template #error>
                     <div class="el-image__wrapper">
                       <el-icon><Plus /></el-icon>
@@ -116,6 +116,10 @@ const deleteImg = (e,key)=>{
   e[key] = ''; //图片属性赋值为空
 }
 
+
+const handleUpload = ()=>{
+
+}
 
 </script>
 

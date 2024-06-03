@@ -10,7 +10,7 @@ const files = import.meta.glob(["/src/modules/*/{views,pages}/**/*", "!**/templa
 const routes:RouteRecordRaw[] = [
     {
         path: "/login",
-        component: () => import("/@/pages/login/Login.vue"),
+        component: () => import("/@/pages/login/Login"),
     },
     {
         path: "/",
@@ -18,19 +18,27 @@ const routes:RouteRecordRaw[] = [
         children:[{
             name:'home',
             path:"/",
-            component: () => import("/@/pages/home/Index.vue"),
+            component: () => import("/@/pages/home/Index"),
         },{
             name:'decorate',
             path:"/decorate/page",
-            component: () => import("/@/pages/decorate/page.vue"),
+            component: () => import("/@/pages/decorate/page"),
         },{
             name:'decorate',
             path:"/decorate/index",
-            component: () => import("/@/pages/decorate/Index.vue"),
+            component: () => import("/@/pages/decorate/Index"),
         },{
-            name:'/decorate/editor',
+            name:'/decorate',
             path:"/decorate/editor",
-            component: () => import("/@/pages/decorate/editor.vue"),
+            component: () => import("/@/pages/decorate/editor"),
+        },{
+            name:'/3d',
+            path:"/3d/index",
+            component: () => import("/@/pages/3d"),
+        },{
+            name:'/finance',
+            path:"/finance/index",
+            component: () => import("/@/pages/finance"),
         }]
     }
 ];
